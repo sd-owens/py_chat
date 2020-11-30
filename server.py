@@ -55,10 +55,12 @@ def init():
             print(f'Type /q to quit')
             msg = input(f'Enter message to send...\n>')
 
-            while read_len > 0 and not msg == '/q':    
+            while not msg == '/q':    
                 connection.send(msg.encode())
                 read = connection.recv(1024)
                 read_len = len(read)
+                if read_len == 0:
+                    break
                 print(f'{read.decode()}')
                 msg = input(f'>')
 

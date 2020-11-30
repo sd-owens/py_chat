@@ -59,9 +59,7 @@ def connect_host(port=0):
                 client.send(msg.encode())
                 response = client.recv(1024)
                 resp_len = len(response)
-                print(response.decode())
-
-        print(f'Connection closed by server')   
+                print(response.decode())  
 
     finally:
         client.close()
